@@ -1,0 +1,10 @@
+{
+  "framework": "jasmine",
+  "src_files": [
+    "scripts/vendor/jquery-1.10.2.min.js",
+    "scripts/vendor/underscore.js",
+    "scripts/vendor/gapi.js",
+    "scripts/oauthService.js",
+    "spec/**/*.js"
+  ]
+}
