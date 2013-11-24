@@ -32,26 +32,83 @@ function handleAuthResult(authResult) {
   }
 }
 
-function makeApiCall() {
+function displayFileContents() {
+  console.log("trying to display");
+}
 
-  gapi.client.load('drive', 'v2', function() {
+function getFullFile(fileId) {
+  gapi.client.request({
+    'path': '/drive/v2/files/' + fileId,
+    'method': 'GET',
+    callback: function(theResponseJs, theResponseTxt) {
+      var token = gapi.auth.getToken();
+      var xhr = new XMLHttpRequest();
+      console.log(theResponseJs.embedLink);
+      xhr.open('GET', theResponseJs.downloadUrl, true);
+      xhr.setRequestHeader('Authorization', 'Bearer ' + token.access_token);
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+          console.log(xhr.status)
+          if (xhr.status == 200) {
+            console.log(xhr.response);
+          }
+        }
+      }
+      xhr.send();
+    }
+  });
+}
+
+function displayFile(file) {
+  $('[data-id=file-info]').append("<img src=" + file.iconLink + "> " + file.title);
+  var xhr = new XMLHttpRequest();
+  var token = gapi.auth.getToken();
+  $.ajax({
+    url: file.embedLink,
+    beforeSend: function(xhr) {
+      xhr.setRequestHeader('Authorization', 'Bearer ' + token.access_token);
+    }
+  }).done(function(data) {
+    console.log(data);
+    $('[data-id=file-info]').append(data);
+  });
+}
+
+function fetchFileContents(fileId) {
+  //getFullFile(fileId);
+
+  var request = gapi.client.drive.files.get({
+    'fileId': fileId
+  });
+
+  request.execute(function(response) {
+    displayFile(response);
+  });
+}
+
+function getFileId() {
+  return gapi.client.load('drive', 'v2', function() {
     var fileList = gapi.client.drive.files.list({
       'userId': 'me',
       'q': "title contains 'tea'"
     });
 
     fileList.execute(function(response) {
-      console.log(response)
+      fetchFileContents(response.items[0].id);
     });
   });
+}
+
+function makeApiCall() {
+  getFileId();
 
   gapi.client.load('plus', 'v1', function() {
     var request = gapi.client.plus.people.get({
       'userId': 'me'
     });
     request.execute(function(response) {
-      $('#response').append("<img src=" + response.image.url + ">");
-      $('#response').append(response.displayName);
+      $('[data-id=user-info]').append("<img src=" + response.image.url + ">");
+      $('[data-id=user-info]').append(response.displayName);
 
     });
   });
