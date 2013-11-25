@@ -1,0 +1,14 @@
+{
+  "name" : "doctest",
+    "description" : "testing stuff",
+    "version" : "0.0.0",
+    "scripts" : {
+      "test": "testem"
+    },
+    "dependencies" : {
+    },
+    "devDependencies" : {
+      "testem" : "~0.4.4",
+      "connect" : "2.11.0"
+    }
+}
