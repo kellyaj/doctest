@@ -1,6 +1,3 @@
-//var xml = "<music><album>Beethover</album></music>";
-//var result = $(xml).find("album").text();
-
 function parseFor(category, xmlString) {
   return $(xmlString).find(category).text();
 }
