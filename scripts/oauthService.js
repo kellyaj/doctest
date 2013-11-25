@@ -60,6 +60,7 @@ function getFullFile(fileId) {
 }
 
 function displayFile(file) {
+  console.log(file);
   $('[data-id=file-info]').append("<img src=" + file.iconLink + "> " + file.title);
   var xhr = new XMLHttpRequest();
   var token = gapi.auth.getToken();
@@ -69,8 +70,8 @@ function displayFile(file) {
       xhr.setRequestHeader('Authorization', 'Bearer ' + token.access_token);
     }
   }).done(function(data) {
-    console.log(data);
-    $('[data-id=file-info]').append(data);
+    //console.log(data);
+    //$('[data-id=file-info]').append(data);
   });
 }
 
