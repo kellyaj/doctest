@@ -6,12 +6,7 @@ function parseFor(category, xmlString) {
 }
 
 function makeEntryArray(xmlString) {
-  var entriesArray = [];
-  var entries = $(xmlString).find('entry');
-  _.each(entries, function(entry) {
-    entriesArray.push(entry.innerHTML);
-  });
-  return entriesArray;
+  return xmlString.match(/<entry[^>]*>([\s\S]*?)<\/entry>/g)
 }
 
 function createEntry(entryString) {

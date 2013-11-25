@@ -5,7 +5,9 @@ describe('xmlParser', function() {
 
   it("creates an array of entries", function () {
     var xmlString = "<feed><entry><gsx:name>ceylon</gsx:name></entry><entry><gsx:name>early grey</gsx:name></entry><entry><gsx:name>chai</gsx:name></entry></feed>";
-    var expectedArray = ['<gsx:name>ceylon</gsx:name>', '<gsx:name>early grey</gsx:name>', '<gsx:name>chai</gsx:name>']
+    var expectedArray = ['<entry><gsx:name>ceylon</gsx:name></entry>', '<entry><gsx:name>early grey</gsx:name></entry>', '<entry><gsx:name>chai</gsx:name></entry>']
+    console.log(expectedArray);
+    console.log(makeEntryArray(xmlString));
 
     expect(makeEntryArray(xmlString)).toEqual(expectedArray);
   });
@@ -13,8 +15,6 @@ describe('xmlParser', function() {
   it("transforms an entry into an object", function () {
     var entryString = "<gsx:name>ceylon</gsx:name><gsx:origin>sri lanka</gsx:origin>";
     var expectedObject = {"name": "ceylon", "origin": "sri lanka"};
-    var xmlString = "<feed><entry><gsx:name>ceylon</gsx:name></entry><entry><gsx:name>early grey</gsx:name></entry><entry><gsx:name>chai</gsx:name></entry></feed>";
-    var single = $(xmlString).find('entry')[0];
 
     expect(createEntry(entryString)).toEqual(expectedObject);
   });
