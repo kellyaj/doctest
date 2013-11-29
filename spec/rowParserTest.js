@@ -1,4 +1,4 @@
-describe('xmlParser', function() {
+describe('rowParser', function() {
 
   var rowParser = new RowParser();
 
@@ -29,4 +29,42 @@ describe('xmlParser', function() {
 
     expect(rowParser.createEntry(jsonExample)).toEqual(expectedObject);
   });
+
+  it("creates an array of entry objects", function () {
+    var jsonExample = [
+      {
+        "title": {
+          "$t": "ceylon"
+        },
+        "content": {
+          "type": "text",
+          "$t": "type: black, region: sri lanka"
+        }
+      },
+      {
+        "title": {
+          "$t": "jasmine"
+        },
+        "content": {
+          "$t": "type: green, region: china"
+        }
+      },
+      {
+        "title": {
+          "$t": "darjeerling"
+        },
+        "content": {
+          "type": "text",
+          "$t": "type: oolong, region: india"
+        }
+      }
+    ];
+    var expectedArray = [
+      {"name": "ceylon", "region": "sri lanka", "type": "black"},
+      {"name": "jasmine", "region": "china", "type": "green"},
+      {"name": "darjeerling", "region": "india", "type": "oolong"}
+    ];
+    expect(rowParser.createEntryArray(jsonExample)).toEqual(expectedArray);
+  });
+
 });

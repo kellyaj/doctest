@@ -21,4 +21,12 @@ var RowParser = function() {
     return entryObject;
   }
 
+  RowParser.prototype.createEntryArray = function(rawArray) {
+    entryArray = [];
+    _.each(rawArray, function(data) {
+      entryArray.push(self.createEntry(data));
+    });
+    return entryArray;
+  }
+
 }
