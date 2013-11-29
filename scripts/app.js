@@ -8,12 +8,14 @@ $(document).ready(function() {
   var url = UrlGenerator.jsonUrl(key);
   var entries = []
 
-
   function retrieveData(url, callback) {
     $.getJSON(url).success(function(data) {
       entries = callback(data.feed.entry);
     }).complete(function() {
       console.log(entries);
+      _.each(entries, function(entry) {
+        for(var k in entry) console.log(k);
+      });
     });
   }
 
