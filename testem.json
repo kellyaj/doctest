@@ -5,8 +5,8 @@
     "scripts/vendor/underscore.js",
     "scripts/vendor/gapi.js",
     "scripts/rowParser.js",
-    "scripts/oauthService.js",
     "scripts/urlGenerator.js",
+    "scripts/tableGenerator.js",
     "spec/**/*.js"
   ]
 }
