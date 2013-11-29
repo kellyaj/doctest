@@ -6,7 +6,7 @@
     "scripts/vendor/gapi.js",
     "scripts/rowParser.js",
     "scripts/oauthService.js",
-    "scripts/spreadsheetService.js",
+    "scripts/urlGenerator.js",
     "spec/**/*.js"
   ]
 }
