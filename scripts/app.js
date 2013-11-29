@@ -4,18 +4,19 @@ $(document).ready(function() {
 
   var urlGenerator = new UrlGenerator();
   var rowParser = new RowParser();
+  var tableGenerator = new TableGenerator();
 
   var url = UrlGenerator.jsonUrl(key);
-  var entries = []
+  var entries = [];
 
   function retrieveData(url, callback) {
     $.getJSON(url).success(function(data) {
       entries = callback(data.feed.entry);
     }).complete(function() {
-      console.log(entries);
-      _.each(entries, function(entry) {
-        for(var k in entry) console.log(k);
-      });
+      keys = [];
+      for(var k in entries[0]) keys.push(k);
+      $('[data-id=entries-table]').append(tableGenerator.createHeaderRow(keys));
+      $('[data-id=entries-table]').append(tableGenerator.createRows(entries));
     });
   }
 
