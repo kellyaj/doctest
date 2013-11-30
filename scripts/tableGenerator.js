@@ -1,5 +1,12 @@
 var TableGenerator = function() {
   var self = this;
+
+  TableGenerator.prototype.getKeys = function(entry) {
+    var keys = [];
+    for(var k in entry) keys.push(k);
+    return keys;
+  }
+
   TableGenerator.prototype.createHeaderRow = function(keys) {
     var html = "<tr>"
     _.each(keys, function(key) {
@@ -23,6 +30,13 @@ var TableGenerator = function() {
     _.each(entries, function(entry) {
       html += self.createEntryRow(entry);
     });
+    return html;
+  }
+
+  TableGenerator.prototype.createTable = function(entries) {
+    var html = "";
+    html += self.createHeaderRow(self.getKeys(entries[0]));
+    html += self.createRows(entries);
     return html;
   }
 }

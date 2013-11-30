@@ -9,18 +9,19 @@ $(document).ready(function() {
   var url = UrlGenerator.jsonUrl(key);
   var entries = [];
 
-  function retrieveData(url, callback) {
+  function retrieveData(url, successCallback, completeCallback) {
     $.getJSON(url).success(function(data) {
-      entries = callback(data.feed.entry);
+      entries = successCallback(data.feed.entry);
     }).complete(function() {
-      keys = [];
-      for(var k in entries[0]) keys.push(k);
-      $('[data-id=entries-table]').append(tableGenerator.createHeaderRow(keys));
-      $('[data-id=entries-table]').append(tableGenerator.createRows(entries));
+      completeCallback();
     });
   }
 
-  retrieveData(url, rowParser.createEntryArray);
+  function renderData() {
+    $('[data-id=entries-table]').append(tableGenerator.createTable(entries));
+  }
+
+  retrieveData(url, rowParser.createEntryArray, renderData);
 
 });
 
