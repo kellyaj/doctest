@@ -7,10 +7,12 @@ $(document).ready(function() {
   var tableGenerator = new TableGenerator();
 
   var url = UrlGenerator.jsonUrl(key);
+  var feed = {}
   var entries = [];
 
   function retrieveData(url, successCallback, completeCallback) {
     $.getJSON(url).success(function(data) {
+      feed = data.feed;
       entries = successCallback(data.feed.entry);
     }).complete(function() {
       completeCallback();
@@ -18,6 +20,7 @@ $(document).ready(function() {
   }
 
   function renderData() {
+    $('[data-id=sheet-title]').append(feed.title.$t);
     $('[data-id=entries-table]').append(tableGenerator.createTable(entries));
   }
 
