@@ -13,7 +13,7 @@ $(document).ready(function() {
   function retrieveData(url, successCallback, completeCallback) {
     $.getJSON(url).success(function(data) {
       feed = data.feed;
-      entries = successCallback(data.feed.entry);
+      entries = successCallback.apply(rowParser, [data.feed.entry]);
     }).complete(function() {
       completeCallback();
     });

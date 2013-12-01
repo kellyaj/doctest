@@ -4,6 +4,7 @@ var Spreadsheet = function(key) {
   var tableGenerator = new TableGenerator();
 
   this.rowParser = rowParser;
+  this.tableGenerator = tableGenerator;
   this.key = key;
   this.url = UrlGenerator.jsonUrl(this.key);
   this.entries = [];
