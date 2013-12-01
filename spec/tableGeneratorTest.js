@@ -39,4 +39,5 @@ describe('tableGenerator', function() {
 
     expect(tableGenerator.createTable(entries)).toBe(expectedHtml);
   });
+
 });

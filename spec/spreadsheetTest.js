@@ -41,7 +41,7 @@ describe('spreadsheet', function() {
       }
     });
 
-    spreadsheet.retrieve();
+    spreadsheet.retrieve.apply(spreadsheet, []);
 
     expect(ajaxSpy).toHaveBeenCalled();
     expect(spreadsheet.entries.length).toBe(2);
