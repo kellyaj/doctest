@@ -5,6 +5,9 @@ describe('spreadsheet', function() {
   var jsonExample = {
     "feed":
       {
+        "title": {
+          "$t": "my teas"
+        },
         "entry": [
           {
             "title": {
@@ -48,14 +51,4 @@ describe('spreadsheet', function() {
     expect(spreadsheet.entries).toEqual(expectedArray);
   });
 
-  xit("renders upon completion of a retrieval", function () {
-    ajaxSpy = spyOn($, "getJSON").andReturn({
-      success: function(e) {
-        e(jsonExample);
-      }
-    });
-
-    spreadsheet.retrieve();
-
-  });
 });

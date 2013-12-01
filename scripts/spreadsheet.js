@@ -8,17 +8,22 @@ var Spreadsheet = function(key) {
   this.key = key;
   this.url = UrlGenerator.jsonUrl(this.key);
   this.entries = [];
+  this.feed = {};
+
   this.successCallback = rowParser.createEntryArray;
-  this.completeCallback = function() { console.log("todo");}
+  this.completeCallback = this.render;
 }
 
 Spreadsheet.prototype.retrieve = function() {
   var self = this;
   $.getJSON(this.url).success(function(data) {
+    self.feed = data.feed;
     self.entries = self.successCallback.apply(self.rowParser, [data.feed.entry]);
     self.completeCallback();
   });
 }
 
 Spreadsheet.prototype.render = function() {
+  $('[data-id=sheet-title]').append(this.feed.title.$t);
+  $('[data-id=entries-table]').append(this.tableGenerator.createTable(this.entries));
 }
