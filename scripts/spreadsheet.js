@@ -10,16 +10,14 @@ var Spreadsheet = function(key) {
   this.entries = [];
   this.feed = {};
 
-  this.successCallback = rowParser.createEntryArray;
-  this.completeCallback = this.render;
 }
 
 Spreadsheet.prototype.retrieve = function() {
   var self = this;
   $.getJSON(this.url).success(function(data) {
     self.feed = data.feed;
-    self.entries = self.successCallback.apply(self.rowParser, [data.feed.entry]);
-    self.completeCallback();
+    self.entries = self.rowParser.createEntryArray(data.feed.entry);
+    self.render();
   });
 }
 
