@@ -22,6 +22,10 @@ Spreadsheet.prototype.retrieve = function() {
 }
 
 Spreadsheet.prototype.render = function() {
-  $('[data-id=sheets]').append("<h2>" + this.feed.title.$t + "</h2>");
+  // refactor to actually put within main div. programmatically
+  var title = this.feed.title.$t;
+  $('[data-id=sheets]').append("<div data-id=" + title + ">");
+  $('[data-id=sheets]').append("<h2>" + title + "</h2>");
   $('[data-id=sheets]').append("<table>" + this.tableGenerator.createTable(this.entries) + "</table>");
+  $('[data-id=sheets]').append("</div>");
 }
