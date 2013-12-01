@@ -4,5 +4,7 @@ $(document).ready(function() {
 
   var sheet = new Spreadsheet(key);
   sheet.retrieve();
+  var sheet2 = new Spreadsheet(ckey);
+  sheet2.retrieve();
 });
 
