@@ -22,7 +22,6 @@ Spreadsheet.prototype.retrieve = function() {
 }
 
 Spreadsheet.prototype.render = function() {
-  // refactor to actually put within main div. programmatically
   var title = this.feed.title.$t;
   $('[data-id=sheets]').append("<div data-id=" + title + ">");
   $('[data-id=sheets]').append("<h2>" + title + "</h2>");
