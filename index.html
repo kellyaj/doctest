@@ -1,13 +1,18 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <link rel="stylesheet" href="styles/main.css">
   </head>
   <body>
 
-    <h1>some spreadsheets</h1>
-    <div data-id="sheets"></div>
-    <h2 data-id="sheet-title"></h2>
-    <table data-id="entries-table"></table>
+    <div>
+      <h1>Enter a spreadsheet key:</h1>
+      <input class="url-input"></input>
+      <button>+</button>
+    </div>
+
+    <h1>Spreadsheets</h1>
+    <div data-id="sheets" class="center"></div>
 
     <script type="text/javascript" src="scripts/vendor/jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="scripts/vendor/underscore.js"></script>

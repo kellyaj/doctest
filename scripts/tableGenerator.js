@@ -7,7 +7,7 @@ TableGenerator.prototype.getKeys = function(entry) {
 }
 
 TableGenerator.prototype.createHeaderRow = function(keys) {
-  var html = "<tr>"
+  var html = '<tr class="header-row">'
   _.each(keys, function(key) {
     var header = "<th>" + key + "</th>"
     html += header;
@@ -16,9 +16,9 @@ TableGenerator.prototype.createHeaderRow = function(keys) {
 }
 
 TableGenerator.prototype.createEntryRow = function(entry) {
-  var html = "<tr>";
+  var html = '<tr class="entry-row">';
   for(var key in entry) {
-    var rowData = "<td>" + entry[key] + "</td>";
+    var rowData = '<td class="entry-cell">' + entry[key] + "</td>";
     html += rowData;
   }
   return html += "</tr>";
