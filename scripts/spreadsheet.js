@@ -23,8 +23,5 @@ Spreadsheet.prototype.retrieve = function() {
 
 Spreadsheet.prototype.render = function() {
   var title = this.feed.title.$t;
-  $('[data-id=sheets]').append("<div data-id=" + title + ">");
-  $('[data-id=sheets]').append("<h2>" + title + "</h2>");
-  $('[data-id=sheets]').append("<table>" + this.tableGenerator.createTable(this.entries) + "</table>");
-  $('[data-id=sheets]').append("</div>");
+  $('[data-id=sheets]').append("<div data-id=" + title + "><h2>" + title + "</h2><table>" + this.tableGenerator.createTable(this.entries) + "</table></div>");
 }
