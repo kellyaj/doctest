@@ -1,5 +1,7 @@
 .url-input {
+  height: 2em;
   width: 28em;
+  margin-left: 11em;
 }
 
 .header-row {
@@ -11,3 +13,17 @@
 .entry-cell {
   padding: 0.3em 1.5em 0.3em 1.5em;
 }
+
+.sheet {
+  margin: 1.6em 0 1.6em 7.6em;
+  margin-left: 7.6em;
+}
+
+h1 {
+  margin-left: 2.3em;
+}
+
+.enter-key {
+  margin-top: 1em;
+}
+

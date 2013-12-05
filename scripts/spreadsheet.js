@@ -23,5 +23,5 @@ Spreadsheet.prototype.retrieve = function() {
 
 Spreadsheet.prototype.render = function() {
   var title = this.feed.title.$t;
-  $('[data-id=sheets]').append("<div data-id=" + title + "><h2>" + title + "</h2><table>" + this.tableGenerator.createTable(this.entries) + "</table></div>");
+  $('[data-id=sheets]').append('<div class="sheet" data-id=' + title + "><h2>" + title + "</h2><table>" + this.tableGenerator.createTable(this.entries) + "</table></div>");
 }
