@@ -9,6 +9,7 @@ var Spreadsheet = function(key) {
   this.url = UrlGenerator.jsonUrl(this.key);
   this.entries = [];
   this.feed = {};
+  this.parentElement = $('[data-id=sheets]');
   this.createElement();
 }
 
@@ -24,7 +25,7 @@ Spreadsheet.prototype.retrieve = function() {
 Spreadsheet.prototype.createElement = function() {
   this.selector = '[data-id=' + this.key + ']';
   if (this.isNewSheet()) {
-    $('[data-id=sheets]').append("<div data-id=" + this.key + "></div>");
+    this.parentElement.append("<div data-id=" + this.key + "></div>");
   }
 }
 
