@@ -33,6 +33,18 @@ describe('spreadsheet', function() {
     expect(spreadsheet.key).toBe(key);
   });
 
+  it("creates a div and selector upon initialization", function () {
+    spreadsheet.createElement();
+    expect(spreadsheet.selector).toBe("[data-id=" + key + "]");
+  });
+
+  it("is a new sheet if there are no other sheets with that id", function () {
+    jquerySpy = spyOn(window, "$").andReturn({});
+
+    expect(spreadsheet.isNewSheet()).toBeTruthy();
+    expect(jquerySpy).toHaveBeenCalledWith(spreadsheet.selector)
+  });
+
   it("retrieves data and stores entries on success", function () {
     var expectedArray = [
       {"name": "ceylon", "region": "sri lanka", "type": "black"},

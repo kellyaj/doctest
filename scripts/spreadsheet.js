@@ -9,7 +9,7 @@ var Spreadsheet = function(key) {
   this.url = UrlGenerator.jsonUrl(this.key);
   this.entries = [];
   this.feed = {};
-
+  this.createElement();
 }
 
 Spreadsheet.prototype.retrieve = function() {
@@ -21,7 +21,18 @@ Spreadsheet.prototype.retrieve = function() {
   });
 }
 
+Spreadsheet.prototype.createElement = function() {
+  this.selector = '[data-id=' + this.key + ']';
+  if (this.isNewSheet()) {
+    $('[data-id=sheets]').append("<div data-id=" + this.key + "></div>");
+  }
+}
+
+Spreadsheet.prototype.isNewSheet = function() {
+  return ($(this.selector)[0] == undefined);
+}
+
 Spreadsheet.prototype.render = function() {
   var title = this.feed.title.$t;
-  $('[data-id=sheets]').append('<div class="sheet" data-id=' + title + "><h2>" + title + "</h2><table>" + this.tableGenerator.createTable(this.entries) + "</table></div>");
+  $(this.selector).html('<div class="sheet" data-id=' + title + "><h2>" + title + "</h2><table>" + this.tableGenerator.createTable(this.entries) + "</table></div>");
 }
