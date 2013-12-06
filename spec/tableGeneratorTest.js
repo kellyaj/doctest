@@ -17,25 +17,25 @@ describe('tableGenerator', function() {
 
   it("creates a row of headers based on an array of keys", function () {
     var keys = ["name", "region", "type"];
-    var expectedHtml = "<tr><th>name</th><th>region</th><th>type</th></tr>"
+    var expectedHtml = '<tr class="header-row"><th>name</th><th>region</th><th>type</th></tr>';
 
     expect(tableGenerator.createHeaderRow(keys)).toBe(expectedHtml);
   });
 
   it("creates an entry row from a single object", function () {
-    var expectedHtml = "<tr><td>ceylon</td><td>sri lanka</td><td>black</td></tr>";
+    var expectedHtml = '<tr class="entry-row"><td class="entry-cell">ceylon</td><td class="entry-cell">sri lanka</td><td class="entry-cell">black</td></tr>';
 
     expect(tableGenerator.createEntryRow(firstEntry)).toBe(expectedHtml);
   });
 
   it("creates table rows from an array of objects", function () {
-    var expectedHtml = "<tr><td>ceylon</td><td>sri lanka</td><td>black</td></tr><tr><td>jasmine</td><td>china</td><td>green</td></tr><tr><td>darjeerling</td><td>india</td><td>oolong</td></tr>";
+    var expectedHtml = '<tr class="entry-row"><td class="entry-cell">ceylon</td><td class="entry-cell">sri lanka</td><td class="entry-cell">black</td></tr><tr class="entry-row"><td class="entry-cell">jasmine</td><td class="entry-cell">china</td><td class="entry-cell">green</td></tr><tr class="entry-row"><td class="entry-cell">darjeerling</td><td class="entry-cell">india</td><td class="entry-cell">oolong</td></tr>';
 
     expect(tableGenerator.createRows(entries)).toBe(expectedHtml);
   });
 
   it("creates a complete table from an array of entries", function () {
-    var expectedHtml = "<tr><th>name</th><th>region</th><th>type</th></tr><tr><td>ceylon</td><td>sri lanka</td><td>black</td></tr><tr><td>jasmine</td><td>china</td><td>green</td></tr><tr><td>darjeerling</td><td>india</td><td>oolong</td></tr>";
+    var expectedHtml = '<tr class="header-row"><th>name</th><th>region</th><th>type</th></tr><tr class="entry-row"><td class="entry-cell">ceylon</td><td class="entry-cell">sri lanka</td><td class="entry-cell">black</td></tr><tr class="entry-row"><td class="entry-cell">jasmine</td><td class="entry-cell">china</td><td class="entry-cell">green</td></tr><tr class="entry-row"><td class="entry-cell">darjeerling</td><td class="entry-cell">india</td><td class="entry-cell">oolong</td></tr>';
 
     expect(tableGenerator.createTable(entries)).toBe(expectedHtml);
   });
