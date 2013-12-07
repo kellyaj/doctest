@@ -29,9 +29,12 @@ describe('Spreadator', function() {
   });
 
   it("removes a spreadsheet from the array of sheets", function () {
+    spreadator.addSheet(sheet);
+    spreadator.addSheet(new Spreadsheet("someOtherKey"));
     spreadator.removeSheet(sheet.key);
 
     expect(spreadator.sheets).not.toContain(sheet);
+    expect(spreadator.sheets.length).toBe(1);
   });
 
   it("removes a key when removing a sheet", function () {
@@ -48,7 +51,8 @@ describe('Spreadator', function() {
     expect(spreadator.sheets.length).toBe(1);
   });
 
-  it("it creates sheets on intialize", function () {
+  it("it creates sheets on initialize", function () {
+    spyOn(spreadator, 'renderSheets');
     spreadator.initialize();
 
     expect(spreadator.sheets.length).toBe(2);

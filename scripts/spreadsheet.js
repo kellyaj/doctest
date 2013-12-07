@@ -29,11 +29,16 @@ Spreadsheet.prototype.createElement = function() {
   }
 }
 
+Spreadsheet.prototype.removeElement = function() {
+  $(this.selector).remove();
+}
+
 Spreadsheet.prototype.isNewSheet = function() {
   return ($(this.selector)[0] == undefined);
 }
 
 Spreadsheet.prototype.render = function() {
   var title = this.feed.title.$t;
-  $(this.selector).html('<div class="sheet" data-id=' + title + '><h2><button data-id="remove-sheet" class="remove-sheet">-</button>' + title + "</h2><table>" + this.tableGenerator.createTable(this.entries) + "</table></div>");
+  $(this.selector).html('<div class="sheet" data-id=' + title + '><h2><button data-id="remove-sheet" class="remove-sheet" data-key=' + this.key + '>-</button>' + title + "</h2><table>" + this.tableGenerator.createTable(this.entries) + "</table></div>");
 }
+

@@ -25,13 +25,6 @@ $(document).ready(function() {
     }
   });
 
-  $('[data-id=remove-sheet]').click(function(e) {
-    // TODO
-    console.log(e.target);
-    spreadator.removeSheet(key);
-    spreadator.renderSheets();
-  });
-
   var resetInputField = function() {
     $(inputField).val("");
   }
@@ -48,6 +41,12 @@ $(document).ready(function() {
   var enterWasPressed = function(e) {
     return (e.which == 13);
   }
+
+  $('body').on('click', '[data-id=remove-sheet]', function() {
+    var key = $(this).data('key');
+    spreadator.removeSheet(key);
+    spreadator.renderSheets();
+  });
 
 });
 

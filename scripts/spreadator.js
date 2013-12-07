@@ -14,8 +14,10 @@ Spreadator.prototype.addSheet = function(sheet) {
 }
 
 Spreadator.prototype.removeSheet = function(key) {
-  this.sheets = _.filter(this.sheets, function(s) { s.key != key; });
-  this.keys = _.filter(this.keys, function(k) { k != key});
+  var sheet = _.find(this.sheets, function(s) { return s.key === key});
+  sheet.removeElement();
+  this.sheets = _.filter(this.sheets, function(s) { return s.key != key; });
+  this.keys = _.filter(this.keys, function(k) { return k != key});
 }
 
 Spreadator.prototype.renderSheets = function() {
@@ -27,9 +29,11 @@ Spreadator.prototype.initialize = function() {
   _.each(self.keys, function(key) {
     self.sheets.push(new Spreadsheet(key));
   });
+  self.renderSheets();
 }
 
 Spreadator.prototype.makeNewSheet = function(key) {
   this.addKey(key);
   this.addSheet(new Spreadsheet(key));
 }
+
