@@ -7,6 +7,7 @@
     "scripts/urlGenerator.js",
     "scripts/tableGenerator.js",
     "scripts/spreadsheet.js",
+    "scripts/spreadator.js",
     "spec/**/*.js"
   ]
 }
