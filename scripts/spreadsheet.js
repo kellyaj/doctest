@@ -35,5 +35,5 @@ Spreadsheet.prototype.isNewSheet = function() {
 
 Spreadsheet.prototype.render = function() {
   var title = this.feed.title.$t;
-  $(this.selector).html('<div class="sheet" data-id=' + title + "><h2>" + title + "</h2><table>" + this.tableGenerator.createTable(this.entries) + "</table></div>");
+  $(this.selector).html('<div class="sheet" data-id=' + title + '><h2><button data-id="remove-sheet" class="remove-sheet">-</button>' + title + "</h2><table>" + this.tableGenerator.createTable(this.entries) + "</table></div>");
 }

@@ -34,6 +34,13 @@ describe('Spreadator', function() {
     expect(spreadator.sheets).not.toContain(sheet);
   });
 
+  it("removes a key when removing a sheet", function () {
+    spreadator.makeNewSheet("someKey");
+    spreadator.removeSheet(sheet.key);
+
+    expect(spreadator.keys).not.toContain(sheet.key);
+  });
+
   it("does not add a spreadsheet if it already exists", function () {
     spreadator.addSheet(sheet);
     spreadator.addSheet(sheet);

@@ -15,6 +15,7 @@ Spreadator.prototype.addSheet = function(sheet) {
 
 Spreadator.prototype.removeSheet = function(key) {
   this.sheets = _.filter(this.sheets, function(s) { s.key != key; });
+  this.keys = _.filter(this.keys, function(k) { k != key});
 }
 
 Spreadator.prototype.renderSheets = function() {

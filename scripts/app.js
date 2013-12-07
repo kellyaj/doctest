@@ -25,6 +25,13 @@ $(document).ready(function() {
     }
   });
 
+  $('[data-id=remove-sheet]').click(function(e) {
+    // TODO
+    console.log(e.target);
+    spreadator.removeSheet(key);
+    spreadator.renderSheets();
+  });
+
   var resetInputField = function() {
     $(inputField).val("");
   }
