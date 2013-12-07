@@ -4,35 +4,38 @@ $(document).ready(function() {
 
   var otherKey = "0AjTtPpTUvG_cdG53SGUwZ3FJcl9VVjV2MWJVQlNUNkE";
 
+  var inputField = '[data-id=key-input]';
+  var keyInput = '[data-id=key-input]';
+
   var spreadator = new Spreadator(keys);
   spreadator.initialize();
   spreadator.renderSheets();
 
   $('[data-id=input-button]').click(function() {
-    spreadator.makeNewSheet($('[data-id=key-input]').val());
+    spreadator.makeNewSheet($(inputField).val());
     resetInputField();
     spreadator.renderSheets();
   });
 
-  $('[data-id=key-input]').keyup(function(e) {
+  $(keyInput).keyup(function(e) {
     if (enterWasPressed(e) && inputIsNotEmpty()) {
-      spreadator.makeNewSheet($('[data-id=key-input]').val());
+      spreadator.makeNewSheet($(inputField).val());
       resetInputField();
       spreadator.renderSheets();
     }
   });
 
   var resetInputField = function() {
-    $('[data-id=key-input]').val("");
+    $(inputField).val("");
   }
 
   var addKey = function() {
-    keys.push($('[data-id=key-input]').val());
-    $('[data-id=key-input]').val("");
+    keys.push($(keyInput).val());
+    $(inputField).val("");
   }
 
   var inputIsNotEmpty = function() {
-    return ($('[data-id=key-input]').val() != "");
+    return ($(inputField).val() != "");
   }
 
   var enterWasPressed = function(e) {
