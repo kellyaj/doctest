@@ -44,7 +44,7 @@ $(document).ready(function() {
 
   $('body').on('click', '[data-id=remove-sheet]', function() {
     var key = $(this).data('key');
-    $('[data-id=' + key + ']').fadeOut(500, function() {
+    $('[data-id=' + key + ']').fadeOut(300, function() {
       spreadator.removeSheet(key);
       spreadator.renderSheets();
     });
