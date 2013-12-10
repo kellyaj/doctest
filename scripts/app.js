@@ -25,6 +25,10 @@ $(document).ready(function() {
     }
   });
 
+  $('[data-id=refresh]').click(function() {
+    spreadator.renderSheets();
+  });
+
   var resetInputField = function() {
     $(inputField).val("");
   }
