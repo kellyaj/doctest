@@ -4,6 +4,10 @@
   margin-left: 11em;
 }
 
+.enter-key {
+  margin-left: 2.3em;
+}
+
 .header-row {
 }
 
@@ -19,17 +23,22 @@
   margin-left: 7.6em;
 }
 
-h1 {
-  margin-left: 2.3em;
+.remove-sheet {
+  margin: 0 2em 0 0;
 }
+
 
 .enter-key {
   margin-top: 1em;
 }
 
 .title {
+  display: inline;
+  padding: 0 0.5em 0 0;
+  margin: 5em 0 0 2.3em;
 }
 
 .refresh {
-  margin-left: 11em;
+  width: 5.8em;
+  height: 1.7em;
 }
