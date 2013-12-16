@@ -51,20 +51,30 @@ table {
 /*
   styles
 */
+
 .key-input {
   height: 2em;
   width: 28em;
-  margin-left: 11em;
+  margin: 1.7em 0.3em 0 11em;
 }
 
 .enter-key {
   margin-left: 2.3em;
 }
 
-.header-row {
+table {
 }
 
+.header-row {
+  vertical-align: middle;
+}
+
+tbody tr:nth-child(odd) {
+    background: #eee;
+  }
+
 .entry-row {
+  vertical-align: middle;
 }
 
 .entry-cell {
