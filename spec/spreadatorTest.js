@@ -3,11 +3,13 @@ describe('Spreadator', function() {
   var spreadator;
   var keys;
   var sheet;
+  var fakeFeed = {title: {$t: "someTitle"}}
 
   beforeEach(function () {
     keys = ["firstKey","secondKey"];
     spreadator = new Spreadator(keys);
     sheet = new Spreadsheet("someKey");
+    sheet.feed = fakeFeed
   });
 
 
@@ -39,6 +41,7 @@ describe('Spreadator', function() {
 
   it("removes a key when removing a sheet", function () {
     spreadator.makeNewSheet("someKey");
+    spreadator.sheets[0].feed = fakeFeed
     spreadator.removeSheet(sheet.key);
 
     expect(spreadator.keys).not.toContain(sheet.key);
