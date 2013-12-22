@@ -101,6 +101,12 @@ tbody tr:nth-child(odd) {
   margin: 5em 0 0 2.3em;
 }
 
+.flash {
+  color: red;
+  padding: 0.5em 0 0 1.5em;
+  height: 1.5em;
+}
+
 .refresh {
   width: 5.8em;
   height: 1.7em;

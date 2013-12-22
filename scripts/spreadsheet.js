@@ -32,7 +32,7 @@ Spreadsheet.prototype.createElement = function() {
 Spreadsheet.prototype.removeElement = function() {
   $(this.selector).remove();
   $('[data-id=flash]').html(this.title + " has been removed.");
-  $('[data-id=flash]').fadeOut(5000, function() {
+  $('[data-id=flash]').fadeOut(4000, function() {
     $('[data-id=flash]').html("");
     $('[data-id=flash]').removeAttr("style");
   })
