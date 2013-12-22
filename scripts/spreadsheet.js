@@ -31,7 +31,7 @@ Spreadsheet.prototype.createElement = function() {
 
 Spreadsheet.prototype.removeElement = function() {
   $(this.selector).remove();
-  $('[data-id=flash]').html(this.feed.title.$t + " has been removed.");
+  $('[data-id=flash]').html(this.title + " has been removed.");
   $('[data-id=flash]').fadeOut(5000, function() {
     $('[data-id=flash]').html("");
     $('[data-id=flash]').removeAttr("style");
@@ -43,11 +43,11 @@ Spreadsheet.prototype.isNewSheet = function() {
 }
 
 Spreadsheet.prototype.render = function() {
-  this.title = this.feed.title.$t;
-  $(this.selector).html('<div class="sheet" data-id=' + this.title + '></div>');
-  $('[data-id=' + this.title + ']').append(this.removeButton());
-  $('[data-id=' + this.title + ']').append(this.titleHeader());
-  $('[data-id=' + this.title + ']').append(this.table());
+  this.setTitles();
+  $(this.selector).html('<div class="sheet" data-id=' + this.dataTitle + '></div>');
+  $('[data-id=' + this.dataTitle + ']').append(this.removeButton());
+  $('[data-id=' + this.dataTitle + ']').append(this.titleHeader());
+  $('[data-id=' + this.dataTitle + ']').append(this.table());
 }
 
 Spreadsheet.prototype.removeButton = function() {
@@ -60,5 +60,10 @@ Spreadsheet.prototype.table = function() {
 
 Spreadsheet.prototype.titleHeader = function() {
   return '<h2 class="sheet-title">' + this.title + '</h2>'
+}
+
+Spreadsheet.prototype.setTitles = function() {
+  this.title = this.feed.title.$t;
+  this.dataTitle = this.title.replace(/\s+/g, "");
 }
 

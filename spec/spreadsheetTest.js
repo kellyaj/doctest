@@ -71,4 +71,13 @@ describe('spreadsheet', function() {
     expect(spreadsheet.removeButton()).toBe('<button data-id="remove-sheet" class="remove-sheet sheet-title" data-key=someKey>-</button>');
   });
 
+  it("sets display titles and data titles", function () {
+    spreadsheet.feed = {title: {$t: "my teas"}};
+    spreadsheet.setTitles();
+
+    expect(spreadsheet.dataTitle).toBe('myteas');
+    expect(spreadsheet.title).toBe('my teas');
+
+  });
+
 });
