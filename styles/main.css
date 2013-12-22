@@ -108,4 +108,15 @@ tbody tr:nth-child(odd) {
 
 .sheet-title {
   display: inline;
+  height: 1.5em;
+}
+
+button.sheet-title {
+  height: 2em;
+  margin-bottom: 0.6em;
+  vertical-align: middle;
+}
+
+h2.sheet-title {
+  font-size: 24px;
 }
