@@ -6,7 +6,7 @@ describe('spreadsheet', function() {
     "feed":
       {
         "title": {
-          "$t": "my teas"
+          "$t": "myteas"
         },
         "entry": [
           {

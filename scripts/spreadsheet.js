@@ -43,7 +43,17 @@ Spreadsheet.prototype.isNewSheet = function() {
 }
 
 Spreadsheet.prototype.render = function() {
-  var title = this.feed.title.$t;
-  $(this.selector).html('<div class="sheet" data-id=' + title + '><h2><button data-id="remove-sheet" class="remove-sheet" data-key=' + this.key + '>-</button>' + title + "</h2><table>" + this.tableGenerator.createTable(this.entries) + "</table></div>");
+  this.title = this.feed.title.$t;
+  $(this.selector).html('<div class="sheet" data-id=' + this.title + '></div>');
+  $('[data-id=' + this.title + ']').append(this.removeButton());
+  $('[data-id=' + this.title + ']').append(this.table());
+}
+
+Spreadsheet.prototype.removeButton = function() {
+  return '<h2><button data-id="remove-sheet" class="remove-sheet" data-key=' + this.key + '>-</button>' + this.title + '</h2>'
+}
+
+Spreadsheet.prototype.table = function() {
+  return "<table>" + this.tableGenerator.createTable(this.entries) + "</table>"
 }
 
