@@ -1,6 +1,6 @@
 describe('spreadsheet', function() {
 
-  var key = "0AjTtPpTUvG_cdGZZV2lpODFHYzVqOG13WEFUQXJFcXc";
+  var key = "someKey";
   var spreadsheet = new Spreadsheet(key);
   var jsonExample = {
     "feed":
@@ -61,6 +61,14 @@ describe('spreadsheet', function() {
     expect(ajaxSpy).toHaveBeenCalled();
     expect(spreadsheet.entries.length).toBe(2);
     expect(spreadsheet.entries).toEqual(expectedArray);
+  });
+
+  it("returns html for its title", function () {
+    expect(spreadsheet.titleHeader()).toBe('<h2 class="sheet-title">myteas</h2>');
+  });
+
+  it("returns html for its removeButton", function () {
+    expect(spreadsheet.removeButton()).toBe('<button data-id="remove-sheet" class="remove-sheet sheet-title" data-key=someKey>-</button>');
   });
 
 });

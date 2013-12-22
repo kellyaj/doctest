@@ -46,14 +46,19 @@ Spreadsheet.prototype.render = function() {
   this.title = this.feed.title.$t;
   $(this.selector).html('<div class="sheet" data-id=' + this.title + '></div>');
   $('[data-id=' + this.title + ']').append(this.removeButton());
+  $('[data-id=' + this.title + ']').append(this.titleHeader());
   $('[data-id=' + this.title + ']').append(this.table());
 }
 
 Spreadsheet.prototype.removeButton = function() {
-  return '<h2><button data-id="remove-sheet" class="remove-sheet" data-key=' + this.key + '>-</button>' + this.title + '</h2>'
+  return '<button data-id="remove-sheet" class="remove-sheet sheet-title" data-key=' + this.key + '>-</button>'
 }
 
 Spreadsheet.prototype.table = function() {
   return "<table>" + this.tableGenerator.createTable(this.entries) + "</table>"
+}
+
+Spreadsheet.prototype.titleHeader = function() {
+  return '<h2 class="sheet-title">' + this.title + '</h2>'
 }
 
