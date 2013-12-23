@@ -1,7 +1,7 @@
 {
-  "name" : "doctest",
-    "description" : "testing stuff",
-    "version" : "0.0.0",
+  "name" : "Spreadator",
+    "description" : "displaying public google spreadsheets",
+    "version" : "0.0.1",
     "scripts" : {
       "test": "testem"
     },
