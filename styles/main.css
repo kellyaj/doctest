@@ -52,6 +52,11 @@ table {
   styles
 */
 
+.container {
+  margin: 0 auto;
+  width: 800px;
+}
+
 .key-input {
   height: 2em;
   width: 28em;
@@ -121,6 +126,12 @@ button.sheet-title {
   height: 2em;
   margin-bottom: 0.6em;
   vertical-align: middle;
+}
+
+h1 {
+  font-family: "Helvetica", Helvetia, sans-serif;
+  font-weight: 300;
+  font-size: 30px;
 }
 
 h2.sheet-title {
