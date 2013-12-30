@@ -65,6 +65,7 @@ table {
 
 .enter-key {
   margin-left: 2.3em;
+  font-weight: 750;
 }
 
 table {
@@ -120,6 +121,7 @@ tbody tr:nth-child(odd) {
 .sheet-title {
   display: inline;
   height: 1.5em;
+  font-weight: 550;
 }
 
 button.sheet-title {
