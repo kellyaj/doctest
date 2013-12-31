@@ -9,7 +9,7 @@ TableGenerator.prototype.getKeys = function(entry) {
 TableGenerator.prototype.createHeaderRow = function(keys) {
   var html = '<tr class="header-row">'
   _.each(keys, function(key) {
-    var header = "<th>" + key + "</th>"
+    var header = "<th>" + key.toUpperCase() + "</th>"
     html += header;
   });
   return html += "</tr>"
