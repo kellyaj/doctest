@@ -85,7 +85,7 @@ tbody tr:nth-child(odd) {
 }
 
 .entry-cell {
-  padding: 0.3em 1.5em 0.3em 1.5em;
+  padding: 0.7em 2.5em 0.7em 2.5em;
 }
 
 .sheet {
@@ -123,12 +123,15 @@ tbody tr:nth-child(odd) {
   display: inline;
   height: 1.5em;
   font-weight: 550;
+  margin: 0 0 1.8em 0;
 }
 
 button.sheet-title {
   height: 2em;
-  margin-bottom: 0.6em;
-  vertical-align: middle;
+}
+
+h2.sheet-title {
+  padding: 0 0 0 1.6em;
 }
 
 h1 {
