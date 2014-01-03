@@ -117,6 +117,7 @@ tbody tr:nth-child(odd) {
 .refresh {
   width: 5.8em;
   height: 1.7em;
+  font-weight: 900;
 }
 
 .sheet-title {
